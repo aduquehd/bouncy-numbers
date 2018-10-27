@@ -56,18 +56,22 @@ if __name__ == "__main__":
     
     We'll call a positive integer that is neither increasing nor decreasing a "bouncy" number – e.g. 155,349.
     """
-    percentage_to_find = 0
+    while True:
+        try:
 
-    try:
-        percentage_to_find = float(input("Write a percentage to find: "))
-        print("\n")
-    except Exception as e:
-        sys.exit("The values are incorrect. Percentage to find should be a float")
+            percentage_to_find = float(input("Write a percentage to find: "))
+            print("\n")
+            total_number_bouncy, number_hit_percentage, current_percentage = find_bouncy_number_by_percentage(
+                percentage_to_find)
 
-    total_number_bouncy, number_hit_percentage, current_percentage = find_bouncy_number_by_percentage(
-        percentage_to_find)
+            print("Total numbers bouncy found: ", total_number_bouncy)
+            print("First number that hit the percentage ({}) was: {}".format(percentage_to_find, number_hit_percentage))
+            print("The current percentage was: ", current_percentage)
+            print("--------------------------------------------------------------------------------")
+            print("\n")
 
-    print("Total numbers bouncy found: ", total_number_bouncy)
-    print("First number that hit the percentage ({}) was: {}".format(percentage_to_find, number_hit_percentage))
-    print("The current percentage was: ", current_percentage)
+        except Exception as e:
+            print("\n")
+            print("Error: Percentage to find should be a float")
+            print("\n")
 
