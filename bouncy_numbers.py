@@ -1,6 +1,3 @@
-import sys
-
-
 def number_is_bouncy(string_number):
     """
     This method will return if a number is bouncy.
@@ -39,7 +36,7 @@ def find_bouncy_number_by_percentage(percentage_to_find):
     """
     bouncy_counter = 0
 
-    for n in range(100, 999999999999999999999999999999999999999999999999):
+    for n in range(100, 9000000000):
         if number_is_bouncy(str(n)):
             bouncy_counter += 1
             if (bouncy_counter / n) * 100 >= percentage_to_find:
@@ -50,16 +47,16 @@ if __name__ == "__main__":
     """
     Description of the problem that the script is fixing
     
-    If no digit in a number is exceeded by the digit to its left it’s called an increasing number – e.g. 134,468.
+    If no digit in a number is exceeded by the digit to its left it's called an increasing number - e.g. 134,468.
     
-    Similarly if no digit is exceeded by the digit to its right it’s called a decreasing number – e.g. 66,420.
+    Similarly if no digit is exceeded by the digit to its right it's called a decreasing number - e.g. 66,420.
     
-    We'll call a positive integer that is neither increasing nor decreasing a "bouncy" number – e.g. 155,349.
+    We'll call a positive integer that is neither increasing nor decreasing a "bouncy" number - e.g. 155,349.
     """
     while True:
         try:
 
-            percentage_to_find = float(input("Write a percentage to find: "))
+            percentage_to_find = float(input("Write a percentage to find (e.g 30 or 30.3): "))
             print("\n")
             total_number_bouncy, number_hit_percentage, current_percentage = find_bouncy_number_by_percentage(
                 percentage_to_find)
@@ -74,4 +71,3 @@ if __name__ == "__main__":
             print("\n")
             print("Error: Percentage to find should be a float")
             print("\n")
-
