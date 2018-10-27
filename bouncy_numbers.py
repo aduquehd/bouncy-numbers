@@ -27,12 +27,11 @@ def number_is_bouncy(string_number):
     return False
 
 
-def find_bouncy_number_by_percentage(percentage_to_find, max_number):
+def find_bouncy_number_by_percentage(percentage_to_find):
     """
     Look for the first number that hit a percentage of bouncy numbers.
     e.g The first number that hit the 40% is 317 and the number that hit the 80% is 3816
     :param percentage_to_find: Float, percentage to find. e.g 80
-    :param max_number: Integer, max number to check. e.g 90000000
     :return: 3 values.
         [Integer, Integer, Float] ->
             [Total numbers of bouncy found, First number that hit the percentage, Current percentage].
@@ -40,7 +39,7 @@ def find_bouncy_number_by_percentage(percentage_to_find, max_number):
     """
     bouncy_counter = 0
 
-    for n in range(100, max_number):
+    for n in range(100, 999999999999999999999999999999999999999999999999):
         if number_is_bouncy(str(n)):
             bouncy_counter += 1
             if (bouncy_counter / n) * 100 >= percentage_to_find:
@@ -58,16 +57,15 @@ if __name__ == "__main__":
     We'll call a positive integer that is neither increasing nor decreasing a "bouncy" number – e.g. 155,349.
     """
     percentage_to_find = 0
-    max_number = 0
 
     try:
-        percentage_to_find = float(input("Write a percentage to find \n"))
-        max_number = int(input("Write the max number (Default is 999999999999) \n")) or 999999999999
+        percentage_to_find = float(input("Write a percentage to find: "))
+        print("\n")
     except Exception as e:
-        sys.exit("The values are incorrect. Percentage to find should be a float and Max number should be an integer")
+        sys.exit("The values are incorrect. Percentage to find should be a float")
 
     total_number_bouncy, number_hit_percentage, current_percentage = find_bouncy_number_by_percentage(
-        percentage_to_find, int(max_number))
+        percentage_to_find)
 
     print("Total numbers bouncy found: ", total_number_bouncy)
     print("First number that hit the percentage ({}) was: {}".format(percentage_to_find, number_hit_percentage))
